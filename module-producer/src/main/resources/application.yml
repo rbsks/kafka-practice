@@ -1,2 +1,4 @@
 server:
   port: 700
+
+bootstrapServers: "localhost:9092"
