@@ -17,7 +17,7 @@ public class MemberConsumer {
 
     private final MemberService memberService;
 
-    @KafkaListener(topics = "create_member", groupId = "create_member", containerFactory = "consumerListener")
+    @KafkaListener(topics = "create_member", groupId = "create_member", containerFactory = "memberConsumerListener")
     public void createMember(
             @Header(name = "kafka_offset") int offset,
             @Header(name = "kafka_receivedPartitionId") int partitionId,
