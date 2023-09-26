@@ -16,13 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaConsumerConfiguration {
+public class MemberConsumerConfiguration {
 
     @Value("${bootstrapServers}")
     private String bootstrapServers;
 
     @Bean
-    public ConsumerFactory<String, CreateMemberRequest> consumerFactory() {
+    public ConsumerFactory<String, CreateMemberRequest> memberConsumerFactory() {
         JsonDeserializer<CreateMemberRequest> jsonDeserializer = new JsonDeserializer<>(CreateMemberRequest.class);
         jsonDeserializer.setRemoveTypeHeaders(false); // deserializer 후 헤더 정보를 유지하기 위한 설정
         jsonDeserializer.addTrustedPackages("*"); // deserializer를 진행할 수 있는 패키지 경로 설정
@@ -40,9 +40,9 @@ public class KafkaConsumerConfiguration {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, CreateMemberRequest> consumerListener() {
+    public ConcurrentKafkaListenerContainerFactory<String, CreateMemberRequest> memberConsumerListener() {
         ConcurrentKafkaListenerContainerFactory<String, CreateMemberRequest> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
+        factory.setConsumerFactory(memberConsumerFactory());
         factory.setConcurrency(1); // 컨슈머 그룹내의 컨슈머 수
         return factory;
     }
