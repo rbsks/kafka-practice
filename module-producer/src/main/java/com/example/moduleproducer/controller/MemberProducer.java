@@ -4,6 +4,7 @@ import com.example.moduleproducer.request.CreateMemberRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/members")
-@RequiredArgsConstructor
 public class MemberProducer {
 
     private final String CREATE_MEMBER_TOPIC = "create_member";
     private final KafkaTemplate<String, CreateMemberRequest> kafkaTemplate;
+
+    public MemberProducer(@Qualifier("memberKafkaTemplate") KafkaTemplate<String, CreateMemberRequest> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -27,7 +31,7 @@ public class MemberProducer {
         send.addCallback(new ListenableFutureCallback<>() {
             @Override
             public void onFailure(Throwable ex) {
-                log.error(ex.getMessage());
+                log.error(ex.getMessage(), ex);
             }
 
             @Override
