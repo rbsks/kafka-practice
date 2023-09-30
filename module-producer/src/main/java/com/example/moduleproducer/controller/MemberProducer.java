@@ -1,7 +1,6 @@
 package com.example.moduleproducer.controller;
 
 import com.example.moduleproducer.request.CreateMemberRequest;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.beans.factory.annotation.Qualifier;
