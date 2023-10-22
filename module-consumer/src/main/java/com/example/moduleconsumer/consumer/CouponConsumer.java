@@ -25,6 +25,7 @@ public class CouponConsumer {
             @Header(name = "kafka_consumer") KafkaConsumer<String, CreateMemberRequest> consumer,
             @Payload Long memberId) {
         log.info("offset: {}, partitionId: {}, groupId: {}", offset, partitionId, groupId);
+        log.info("consumer: {}", consumer.groupMetadata());
         couponService.createCoupon(memberId);
     }
 
