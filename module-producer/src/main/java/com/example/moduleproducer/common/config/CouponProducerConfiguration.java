@@ -25,7 +25,7 @@ public class CouponProducerConfiguration {
     public NewTopic couponTopic() {
         return TopicBuilder
                 .name("create_coupon")
-                .partitions(2)
+                .partitions(4)
                 .replicas(1)
                 .build();
     }
