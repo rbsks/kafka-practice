@@ -1,7 +1,7 @@
 server:
   port: 800
 
-bootstrapServers: "oci-kafka:9092"
+bootstrapServers: "localhost:9091"
 
 spring:
   datasource:

@@ -37,7 +37,7 @@ public class CouponConsumerConfiguration {
     public ConcurrentKafkaListenerContainerFactory<String, Long> couponConsumerListener() {
         ConcurrentKafkaListenerContainerFactory<String, Long> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(couponConsumerFactory());
-        factory.setConcurrency(1); // 컨슈머 그룹내의 컨슈머 수
+        factory.setConcurrency(4); // 컨슈머 그룹내의 컨슈머 수
         return factory;
     }
 }

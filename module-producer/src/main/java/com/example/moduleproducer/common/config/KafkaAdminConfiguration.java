@@ -29,7 +29,7 @@ public class KafkaAdminConfiguration {
         return TopicBuilder
                 .name("create_member")
                 .partitions(2)
-                .replicas(1)
+                .replicas(3)
                 .build();
     }
 
@@ -38,7 +38,7 @@ public class KafkaAdminConfiguration {
         return TopicBuilder
                 .name("create_coupon")
                 .partitions(4)
-                .replicas(1)
+                .replicas(3)
                 .build();
     }
 }

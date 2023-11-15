@@ -43,7 +43,7 @@ public class MemberConsumerConfiguration {
     public ConcurrentKafkaListenerContainerFactory<String, CreateMemberRequest> memberConsumerListener() {
         ConcurrentKafkaListenerContainerFactory<String, CreateMemberRequest> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(memberConsumerFactory());
-        factory.setConcurrency(1); // 컨슈머 그룹내의 컨슈머 수
+        factory.setConcurrency(2); // 컨슈머 그룹내의 컨슈머 수
         return factory;
     }
 }
