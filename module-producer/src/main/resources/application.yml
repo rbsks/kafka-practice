@@ -1,4 +1,4 @@
 server:
   port: 700
 
-bootstrapServers: "oci-kafka:9092"
+bootstrapServers: "oci-kafka:9092,oci-kafka:9093,oci-kafka:9094"

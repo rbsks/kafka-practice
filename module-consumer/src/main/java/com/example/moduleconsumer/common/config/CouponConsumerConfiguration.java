@@ -1,6 +1,7 @@
 package com.example.moduleconsumer.common.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.OffsetResetStrategy;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.LongDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -25,7 +26,7 @@ public class CouponConsumerConfiguration {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, "create_coupon");
-        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, OffsetResetStrategy.LATEST.toString().toLowerCase());
         return new DefaultKafkaConsumerFactory<>(
                 configs,
                 new StringDeserializer(),
