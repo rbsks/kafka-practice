@@ -20,12 +20,21 @@ public class MemberProducerConfiguration {
     @Value("${bootstrapServers}")
     private String bootstrapServers;
 
+    /*
+     * kafka-client 3.1.2에서는 partitional 전략이 DefaultPartitioner인 경우
+     * 배치가 가득 차거나 linger ms 동작으로 인해 레코드가 브로커로 전송되기 전까지 하나의 파티션에 고정으로 레코드를 전송하며
+     * 레코드가 브로커로 전송이 되면 고정된 파티션이 다른 파티션으로 바뀌게 된다.
+     * 즉, sticky partitioner 방식과 round robin 방식이 섞임.
+     * KIP-480을 참고해서 적은 내용이며 kafka-client가 다른 버전인 경우에는 동작 방식이 다를 수 있음.
+     */
     @Bean
     public ProducerFactory<String, CreateMemberRequest> memberProducerFactory() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+//        configs.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384 * 10);
+//        configs.put(ProducerConfig.LINGER_MS_CONFIG, 10000);
         return new DefaultKafkaProducerFactory<>(configs);
     }
 
