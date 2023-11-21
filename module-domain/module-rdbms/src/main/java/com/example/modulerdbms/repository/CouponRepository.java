@@ -1,7 +1,7 @@
-package com.example.modulecore.repository;
+package com.example.modulerdbms.repository;
 
-import com.example.modulecore.domain.Coupon;
-import com.example.modulecore.entity.CouponEntity;
+import com.example.modulerdbms.domain.Coupon;
+import com.example.modulerdbms.entity.CouponEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

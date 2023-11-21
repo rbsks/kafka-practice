@@ -1,7 +1,7 @@
-package com.example.modulecore.repository;
+package com.example.modulerdbms.repository;
 
-import com.example.modulecore.domain.Member;
-import com.example.modulecore.entity.MemberEntity;
+import com.example.modulerdbms.domain.Member;
+import com.example.modulerdbms.entity.MemberEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,9 +1,9 @@
 package com.example.moduleconsumer.service;
 
 import com.example.moduleconsumer.request.CreateMemberRequest;
-import com.example.modulecore.domain.Member;
-import com.example.modulecore.entity.MemberEntity;
-import com.example.modulecore.repository.MemberRepository;
+import com.example.modulerdbms.domain.Member;
+import com.example.modulerdbms.entity.MemberEntity;
+import com.example.modulerdbms.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

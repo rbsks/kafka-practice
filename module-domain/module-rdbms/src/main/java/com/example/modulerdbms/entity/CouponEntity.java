@@ -1,16 +1,22 @@
-package com.example.modulecore.domain;
+package com.example.modulerdbms.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Coupon {
+@Entity
+@Table(name = "coupon")
+public class CouponEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long memberId;
 }

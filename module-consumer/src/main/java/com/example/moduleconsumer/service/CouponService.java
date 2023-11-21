@@ -1,7 +1,7 @@
 package com.example.moduleconsumer.service;
 
-import com.example.modulecore.entity.CouponEntity;
-import com.example.modulecore.repository.CouponRepository;
+import com.example.modulerdbms.entity.CouponEntity;
+import com.example.modulerdbms.repository.CouponRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

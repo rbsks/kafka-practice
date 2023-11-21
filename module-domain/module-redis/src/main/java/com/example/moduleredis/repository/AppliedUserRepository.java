@@ -1,4 +1,4 @@
-package com.example.modulecore.repository;
+package com.example.moduleredis.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -6,11 +6,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class CouponCountRepository {
+public class AppliedUserRepository {
 
     private final RedisTemplate<String, String> redisTemplate;
 
-    public Long increment() {
-        return redisTemplate.opsForValue().increment("coupon_count");
+    public Long add(Long memberId) {
+        return redisTemplate
+                .opsForSet()
+                .add("applied_member", memberId.toString());
     }
 }
