@@ -1,7 +1,7 @@
 package com.example.moduleproducer.service;
 
-import com.example.modulecore.repository.AppliedUserRepository;
-import com.example.modulecore.repository.CouponCountRepository;
+import com.example.moduleredis.repository.AppliedUserRepository;
+import com.example.moduleredis.repository.CouponCountRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.beans.factory.annotation.Qualifier;

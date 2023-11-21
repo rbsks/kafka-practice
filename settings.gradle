@@ -2,4 +2,8 @@ rootProject.name = 'kafka-practice'
 include 'module-core'
 include 'module-consumer'
 include 'module-producer'
+include 'module-domain:module-rdbms'
+findProject(':module-domain:module-rdbms')?.name = 'module-rdbms'
+include 'module-domain:module-redis'
+findProject(':module-domain:module-redis')?.name = 'module-redis'
 
