@@ -14,14 +14,14 @@ public class RedisConfiguration {
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName("localhost");
+        redisStandaloneConfiguration.setHostName("oci-kafka");
         redisStandaloneConfiguration.setPort(6379);
 
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
     }
 
     @Bean
-    public RedisTemplate<?, ?> redisTemplate() {
+    public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory());
         redisTemplate.setDefaultSerializer(new StringRedisSerializer());
