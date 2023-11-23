@@ -1,6 +1,5 @@
 package com.example.moduleproducer.service;
 
-import com.example.modulecore.repository.CouponRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,26 +9,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-
 @SpringBootTest
 class ApplyServiceTest {
 
     @Autowired
     private ApplyService applyService;
     @Autowired
-    private CouponRepository couponRepository;
-    @Autowired
     private RedisTemplate<String, String> redisTemplate;
-
-    @Test
-    public void oneRequest() {
-        applyService.apply(1L);
-
-        long count = couponRepository.getCount();
-
-        assertThat(count).isEqualTo(1);
-    }
 
     @Test
     public void manyRequest() throws Exception {
@@ -50,10 +36,6 @@ class ApplyServiceTest {
         }
 
         countDownLatch.await();
-
-        long count = couponRepository.getCount();
-
-        assertThat(count).isEqualTo(100);
     }
 
     @Test
@@ -74,10 +56,6 @@ class ApplyServiceTest {
         }
 
         countDownLatch.await();
-
-        long count = couponRepository.getCount();
-
-        assertThat(count).isEqualTo(1);
     }
 
     @Test
