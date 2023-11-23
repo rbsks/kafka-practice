@@ -5,7 +5,7 @@ bootstrapServers: "oci-kafka:9092,oci-kafka:9093,oci-kafka:9094"
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/kafka_toy?autoReconnect=true&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    url: jdbc:mysql://oci-kafka:3306/kafka_toy?autoReconnect=true&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: kafka_toy
     password: qwer1234
