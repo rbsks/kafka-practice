@@ -13,10 +13,6 @@ public class CouponRepository {
 
     private final CouponJpaRepository couponJpaRepository;
 
-    public long getCount() {
-        return couponJpaRepository.count();
-    }
-
     @Transactional
     public Coupon save(CouponEntity couponEntity) {
         CouponEntity saveCoupon = couponJpaRepository.save(couponEntity);
