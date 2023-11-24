@@ -1,4 +1,4 @@
-package com.example.modulerdbms.entity;
+package com.example.modulejpa.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,15 +10,13 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Builder
-@Table(name = "member")
-public class MemberEntity {
+@Entity
+@Table(name = "coupon")
+public class CouponEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String phoneNumber;
+    private Long memberId;
 }

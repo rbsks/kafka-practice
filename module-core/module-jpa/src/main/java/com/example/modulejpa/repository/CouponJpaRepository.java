@@ -1,6 +1,6 @@
-package com.example.modulerdbms.repository;
+package com.example.modulejpa.repository;
 
-import com.example.modulerdbms.entity.CouponEntity;
+import com.example.modulejpa.entity.CouponEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
