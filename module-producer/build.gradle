@@ -2,5 +2,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.kafka:spring-kafka'
-    implementation project(':module-domain:module-redis')
+    implementation project(':module-core:module-redis')
+
+    testImplementation project(':module-core:module-redis')
 }

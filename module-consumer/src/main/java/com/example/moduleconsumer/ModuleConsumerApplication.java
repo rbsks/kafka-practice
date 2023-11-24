@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.example")
-@EntityScan(basePackages = {"com.example.modulerdbms"})
-@EnableJpaRepositories(basePackages = {"com.example.modulerdbms"})
+@EntityScan(basePackages = {"com.example.modulejpa"})
+@EnableJpaRepositories(basePackages = {"com.example.modulejpa"})
 public class ModuleConsumerApplication {
 
     public static void main(String[] args) {
