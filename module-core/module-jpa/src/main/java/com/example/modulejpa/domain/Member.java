@@ -1,4 +1,4 @@
-package com.example.modulerdbms.domain;
+package com.example.modulejpa.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Coupon {
+public class Member {
 
     private Long id;
-    private Long memberId;
+    private String name;
+    private String email;
+    private String phoneNumber;
 }
