@@ -25,6 +25,9 @@ public class CouponProducerConfiguration {
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, LongSerializer.class);
+        configs.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, false);
+        configs.put(ProducerConfig.BATCH_SIZE_CONFIG, 32 * 1024);
+        configs.put(ProducerConfig.LINGER_MS_CONFIG, 20);
         return new DefaultKafkaProducerFactory<>(configs);
     }
 

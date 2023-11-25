@@ -14,7 +14,7 @@ public class RedisConfiguration {
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName("oci-kafka");
+        redisStandaloneConfiguration.setHostName("oci");
         redisStandaloneConfiguration.setPort(6379);
 
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
