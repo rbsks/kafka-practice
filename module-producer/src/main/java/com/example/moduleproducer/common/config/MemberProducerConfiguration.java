@@ -1,6 +1,6 @@
 package com.example.moduleproducer.common.config;
 
-import com.example.moduleproducer.request.CreateMemberRequest;
+import com.example.moduleproducer.member.presentation.dto.request.CreateMemberRequest;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

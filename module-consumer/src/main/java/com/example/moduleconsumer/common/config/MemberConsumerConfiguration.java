@@ -1,6 +1,6 @@
 package com.example.moduleconsumer.common.config;
 
-import com.example.moduleconsumer.request.CreateMemberRequest;
+import com.example.moduleconsumer.member.presentation.dto.request.CreateMemberRequest;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.OffsetResetStrategy;
 import org.apache.kafka.clients.producer.ProducerConfig;
