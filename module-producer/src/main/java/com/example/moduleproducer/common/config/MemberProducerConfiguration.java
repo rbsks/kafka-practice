@@ -33,8 +33,9 @@ public class MemberProducerConfiguration {
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-//        configs.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384 * 10);
-//        configs.put(ProducerConfig.LINGER_MS_CONFIG, 10000);
+        configs.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, false);
+        configs.put(ProducerConfig.BATCH_SIZE_CONFIG, 32 * 1024);
+        configs.put(ProducerConfig.LINGER_MS_CONFIG, 20);
         return new DefaultKafkaProducerFactory<>(configs);
     }
 
