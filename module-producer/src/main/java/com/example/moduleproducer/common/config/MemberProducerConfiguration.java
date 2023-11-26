@@ -21,7 +21,7 @@ public class MemberProducerConfiguration {
     private String bootstrapServers;
 
     /*
-     * kafka-client 3.1.2에서는 partitional 전략이 DefaultPartitioner인 경우
+     * kafka-client 3.1.2에서는 partitioner 전략이 DefaultPartitioner인 경우
      * 배치가 가득 차거나 linger ms 동작으로 인해 레코드가 브로커로 전송되기 전까지 하나의 파티션에 고정으로 레코드를 전송하며
      * 레코드가 브로커로 전송이 되면 고정된 파티션이 다른 파티션으로 바뀌게 된다.
      * 즉, sticky partitioner 방식과 round robin 방식이 섞임.
