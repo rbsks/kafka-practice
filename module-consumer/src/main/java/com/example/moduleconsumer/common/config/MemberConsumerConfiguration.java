@@ -33,6 +33,7 @@ public class MemberConsumerConfiguration {
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, "create_member");
         configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, OffsetResetStrategy.LATEST.toString().toLowerCase());
+        configs.put(ConsumerConfig.CONNECTIONS_MAX_IDLE_MS_CONFIG, -1);
         return new DefaultKafkaConsumerFactory<>(
                 configs,
                 new StringDeserializer(),

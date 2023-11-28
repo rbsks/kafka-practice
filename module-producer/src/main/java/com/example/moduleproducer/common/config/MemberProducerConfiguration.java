@@ -36,6 +36,7 @@ public class MemberProducerConfiguration {
         configs.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, false);
         configs.put(ProducerConfig.BATCH_SIZE_CONFIG, 32 * 1024);
         configs.put(ProducerConfig.LINGER_MS_CONFIG, 20);
+        configs.put(ProducerConfig.CONNECTIONS_MAX_IDLE_MS_CONFIG, -1);
         return new DefaultKafkaProducerFactory<>(configs);
     }
 
