@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.listener.ContainerProperties;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +41,8 @@ public class CouponConsumerConfiguration {
         ConcurrentKafkaListenerContainerFactory<String, Long> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(couponConsumerFactory());
         factory.setConcurrency(4); // 컨슈머 그룹내의 컨슈머 수
+        factory.setBatchListener(false);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.RECORD);
         return factory;
     }
 }

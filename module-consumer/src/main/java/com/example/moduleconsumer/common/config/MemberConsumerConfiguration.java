@@ -15,6 +15,7 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 @Configuration
 public class MemberConsumerConfiguration {
@@ -45,7 +46,8 @@ public class MemberConsumerConfiguration {
     public ConcurrentKafkaListenerContainerFactory<String, CreateMemberRequest> memberConsumerListener() {
         ConcurrentKafkaListenerContainerFactory<String, CreateMemberRequest> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(memberConsumerFactory());
-        factory.setConcurrency(2); // 컨슈머 그룹내의 컨슈머 수
+        factory.setConcurrency(4); // 컨슈머 그룹내의 컨슈머 수
+        factory.setBatchListener(true);
         return factory;
     }
 }

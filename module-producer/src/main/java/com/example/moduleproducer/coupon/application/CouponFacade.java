@@ -32,9 +32,11 @@ public class CouponFacade {
 
     public void createCoupon(final Long memberId) {
         if (!Objects.equals(appliedUserService.isCouponIssued(memberId), 1L)) {
+            log.error("이미 쿠폰을 발급 받은 회원입니다.");
             return;
         }
         if (couponService.getNumberOfCouponIssued() > 100L) {
+            log.error("쿠폰 마감!!!!");
             return;
         }
 
