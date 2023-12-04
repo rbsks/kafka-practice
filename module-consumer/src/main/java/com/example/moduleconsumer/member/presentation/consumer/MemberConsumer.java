@@ -36,7 +36,12 @@ public class MemberConsumer {
             log.info("offset: {}, partitionId: {}, groupId: {}", offset, partitionId, groupId);
             memberFacade.createMember(createMemberRequestConsumerRecord.value());
         });
-        consumer.commitAsync();
+
+        consumer.commitAsync((offsets, exception) -> {
+            if (exception != null) {
+                log.error("Failed to commit offsets", exception);
+            }
+        });
     }
 
 }
